@@ -7,14 +7,13 @@
 
 import CoreImage
 import Vision
+import SwiftUI
 
 class ContentViewModel: ObservableObject {
   @Published var error: Error?
   @Published var frame: CGImage?
 
   var poseDetection = false
-
-  private let context = CIContext()
 
   private let cameraManager = CameraManager.shared
   private let frameManager = FrameManager.shared
@@ -32,11 +31,9 @@ class ContentViewModel: ObservableObject {
     frameManager.$current
       .receive(on: RunLoop.main)
       .compactMap { buffer in
-        guard let cgImage = CGImage.create(from: buffer) else {
+        guard var cgImage = CGImage.create(from: buffer) else {
           return nil
         }
-        
-        let ciImage = CIImage(cgImage: cgImage)
         
         if self.poseDetection {
           let requestHandler = VNImageRequestHandler(cgImage: cgImage)
@@ -48,11 +45,21 @@ class ContentViewModel: ObservableObject {
             print("Unable to perform the request: \(error).")
           }
           
-          print(self.bodyPoseHandler(request: poseRequest))
+          let posePoints = self.bodyPoseHandler(request: poseRequest)
+          
+          let ctx = CGContext(data: nil, width: cgImage.width, height: cgImage.height, bitsPerComponent: cgImage.bitsPerComponent, bytesPerRow: cgImage.bytesPerRow, space: cgImage.colorSpace!, bitmapInfo: cgImage.bitmapInfo.rawValue)
+          
+          ctx!.draw(cgImage, in: CGRect(x: 0, y: 0, width: cgImage.width, height: cgImage.height))
+          
+          ctx!.setFillColor(UIColor.red.cgColor)
+          
+          posePoints.first?.forEach { ctx!.fillEllipse(in: CGRect(x: $0.x, y: $0.y, width: 50, height: 50)) }
+          
+          cgImage = (ctx!.makeImage())!
           
         }
 
-        return self.context.createCGImage(ciImage, from: ciImage.extent)
+        return cgImage
       }
       .assign(to: &$frame)
   }
