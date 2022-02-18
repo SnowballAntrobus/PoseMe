@@ -6,6 +6,7 @@
 //
 
 import CoreImage
+import Vision
 
 class ContentViewModel: ObservableObject {
   @Published var error: Error?
@@ -23,7 +24,6 @@ class ContentViewModel: ObservableObject {
   }
 
   func setupSubscriptions() {
-    // swiftlint:disable:next array_init
     cameraManager.$error
       .receive(on: RunLoop.main)
       .map { $0 }
@@ -32,18 +32,63 @@ class ContentViewModel: ObservableObject {
     frameManager.$current
       .receive(on: RunLoop.main)
       .compactMap { buffer in
-        guard let image = CGImage.create(from: buffer) else {
+        guard let cgImage = CGImage.create(from: buffer) else {
           return nil
         }
-
-        var ciImage = CIImage(cgImage: image)
+        
+        let ciImage = CIImage(cgImage: cgImage)
         
         if self.poseDetection {
-              ciImage = ciImage.applyingFilter("CIComicEffect")
-            }
+          let requestHandler = VNImageRequestHandler(cgImage: cgImage)
+          let poseRequest = VNDetectHumanBodyPoseRequest()
+          
+          do {
+            try requestHandler.perform([poseRequest])
+          } catch {
+            print("Unable to perform the request: \(error).")
+          }
+          
+          print(self.bodyPoseHandler(request: poseRequest))
+          
+        }
 
         return self.context.createCGImage(ciImage, from: ciImage.extent)
       }
       .assign(to: &$frame)
   }
+  
+  func bodyPoseHandler(request: VNRequest) -> [[CGPoint]] {
+    guard let observations =
+            request.results as? [VNHumanBodyPoseObservation] else {
+              return []
+            }
+    var results:[[CGPoint]] = []
+    
+    observations.forEach { results.append(self.processObservation($0)) }
+    
+    return results
+  }
+  
+  func processObservation(_ observation: VNHumanBodyPoseObservation) -> [CGPoint]{
+    guard let recognizedPoints = try? observation.recognizedPoints(.torso) else { return [] }
+    
+    let torsoJointNames: [VNHumanBodyPoseObservation.JointName] = [
+      .neck,
+      .rightShoulder,
+      .rightHip,
+      .root,
+      .leftHip,
+      .leftShoulder
+    ]
+    
+    let imagePoints: [CGPoint] = torsoJointNames.compactMap {
+      guard let point = recognizedPoints[$0], point.confidence > 0 else { return nil }
+      
+      return VNImagePointForNormalizedPoint(point.location, Int(self.frame!.width), Int(self.frame!.height))
+    }
+    
+    return imagePoints
+
+  }
+  
 }
