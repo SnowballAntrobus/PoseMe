@@ -16,6 +16,8 @@ struct CaptureView: View {
         .edgesIgnoringSafeArea(.all)
 
       ErrorView(error: model.error)
+      
+      ControlView(poseSelected: $model.poseDetection)
     }
   }
 }

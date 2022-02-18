@@ -20,6 +20,8 @@
 		9B7FF2FF27BF33D200A65962 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FF2FE27BF33D200A65962 /* FrameView.swift */; };
 		9B7FF30327BF34F900A65962 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FF30227BF34F900A65962 /* MainView.swift */; };
 		9B7FF30727BF352900A65962 /* CatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FF30627BF352900A65962 /* CatalogView.swift */; };
+		9B7FF30927BF508B00A65962 /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FF30827BF508B00A65962 /* ControlView.swift */; };
+		9B7FF30C27BF511100A65962 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FF30B27BF511100A65962 /* ToggleButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		9B7FF2FE27BF33D200A65962 /* FrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
 		9B7FF30227BF34F900A65962 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		9B7FF30627BF352900A65962 /* CatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogView.swift; sourceTree = "<group>"; };
+		9B7FF30827BF508B00A65962 /* ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlView.swift; sourceTree = "<group>"; };
+		9B7FF30B27BF511100A65962 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,7 @@
 		9B7FF30427BF350600A65962 /* Capture */ = {
 			isa = PBXGroup;
 			children = (
+				9B7FF30A27BF50EE00A65962 /* Control */,
 				9B7FF2FE27BF33D200A65962 /* FrameView.swift */,
 				9B7FF2FC27BF33B100A65962 /* ErrorView.swift */,
 				9B7FF2F827BF337E00A65962 /* CaptureView.swift */,
@@ -142,6 +147,15 @@
 				9B7FF30627BF352900A65962 /* CatalogView.swift */,
 			);
 			path = Catalog;
+			sourceTree = "<group>";
+		};
+		9B7FF30A27BF50EE00A65962 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				9B7FF30827BF508B00A65962 /* ControlView.swift */,
+				9B7FF30B27BF511100A65962 /* ToggleButton.swift */,
+			);
+			path = Control;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,7 +231,9 @@
 				9B7FF30727BF352900A65962 /* CatalogView.swift in Sources */,
 				9B7FF30327BF34F900A65962 /* MainView.swift in Sources */,
 				9B27F7B127BF2DD1009588F6 /* PoseMeApp.swift in Sources */,
+				9B7FF30C27BF511100A65962 /* ToggleButton.swift in Sources */,
 				9B7FF2F327BF330A00A65962 /* CGImageExtension.swift in Sources */,
+				9B7FF30927BF508B00A65962 /* ControlView.swift in Sources */,
 				9B7FF2F927BF337E00A65962 /* CaptureView.swift in Sources */,
 				9B7FF2F627BF334700A65962 /* ContentViewModel.swift in Sources */,
 				9B7FF2EE27BF32B100A65962 /* CameraManager.swift in Sources */,

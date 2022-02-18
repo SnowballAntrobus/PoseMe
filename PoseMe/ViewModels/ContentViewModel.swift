@@ -11,9 +11,7 @@ class ContentViewModel: ObservableObject {
   @Published var error: Error?
   @Published var frame: CGImage?
 
-  var comicFilter = false
-  var monoFilter = false
-  var crystalFilter = false
+  var poseDetection = false
 
   private let context = CIContext()
 
@@ -38,7 +36,11 @@ class ContentViewModel: ObservableObject {
           return nil
         }
 
-        let ciImage = CIImage(cgImage: image)
+        var ciImage = CIImage(cgImage: image)
+        
+        if self.poseDetection {
+              ciImage = ciImage.applyingFilter("CIComicEffect")
+            }
 
         return self.context.createCGImage(ciImage, from: ciImage.extent)
       }
