@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CaptureView: View {
-  @StateObject private var model = ContentViewModel()
+  @StateObject private var model = CaptureViewModel()
 
   var body: some View {
     ZStack {
