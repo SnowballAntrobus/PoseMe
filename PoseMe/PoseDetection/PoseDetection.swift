@@ -7,6 +7,19 @@
 
 import Vision
 
+func runPoseDetection(cgImage: CGImage) -> [[CGPoint]] {
+  let requestHandler = VNImageRequestHandler(cgImage: cgImage)
+  let poseRequest = VNDetectHumanBodyPoseRequest()
+  
+  do {
+    try requestHandler.perform([poseRequest])
+  } catch {
+    print("Unable to perform the request: \(error).")
+  }
+  
+  return bodyPoseHandler(request: poseRequest, width: Int(cgImage.width), height: Int(cgImage.height))
+}
+
 func bodyPoseHandler(request: VNRequest, width: Int, height: Int) -> [[CGPoint]] {
   guard let observations =
           request.results as? [VNHumanBodyPoseObservation] else {

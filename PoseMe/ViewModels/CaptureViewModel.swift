@@ -36,27 +36,15 @@ class CaptureViewModel: ObservableObject {
         }
         
         if self.poseDetection {
-          let requestHandler = VNImageRequestHandler(cgImage: cgImage)
-          let poseRequest = VNDetectHumanBodyPoseRequest()
-          
-          do {
-            try requestHandler.perform([poseRequest])
-          } catch {
-            print("Unable to perform the request: \(error).")
-          }
-          
-          if let f = self.frame {
-            let posePoints = bodyPoseHandler(request: poseRequest, width: Int(f.width), height: Int(f.height))
-            
-            if let ctx = cgImage.copyContext() {
-              ctx.setFillColor(UIColor.blue.cgColor)
+          let posePoints = runPoseDetection(cgImage: cgImage)
+          if let ctx = cgImage.copyContext() {
+            ctx.setFillColor(UIColor.blue.cgColor)
               
-              if let points = posePoints.first {
-                posePointDrawing(ctx: ctx, points: points)
+            if let points = posePoints.first {
+              posePointDrawing(ctx: ctx, points: points)
                 
-                if let img = ctx.makeImage() {
-                  cgImage = img
-                }
+              if let img = ctx.makeImage() {
+                cgImage = img
               }
             }
           }
