@@ -8,13 +8,41 @@
 import SwiftUI
 
 struct AddPoseItemView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  @Binding var poseItems: [PoseItem]
+  @State private var selectedImage: UIImage?
+  @State private var isImagePickerDisplay = false
+  
+  var body: some View {
+    VStack {
+      if selectedImage != nil {
+        Image(uiImage: selectedImage!)
+          .resizable()
+          .aspectRatio(contentMode: .fit)
+          .frame(width: 300, height: 300)
+      }
+      else {
+        Button(action: {
+          self.isImagePickerDisplay.toggle()
+        }) {
+          Image(systemName: "photo")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 300, height: 300)
+        }
+      }
+      
+      Text("Pose Name")
+      
+      .sheet(isPresented: $isImagePickerDisplay) {
+        ImagePicker(selectedImage: self.$selectedImage)
+      }
+      
     }
+  }
 }
 
 struct AddPoseItemView_Previews: PreviewProvider {
     static var previews: some View {
-        AddPoseItemView()
+      AddPoseItemView(poseItems: .constant([]))
     }
 }

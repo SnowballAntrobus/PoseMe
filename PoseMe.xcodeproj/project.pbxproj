@@ -30,6 +30,7 @@
 		9B7FF31C27C0DA8700A65962 /* PoseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FF31B27C0DA8700A65962 /* PoseItem.swift */; };
 		9B7FF31E27C0E11700A65962 /* PoseItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FF31D27C0E11700A65962 /* PoseItems.swift */; };
 		9B7FF32027C0E93B00A65962 /* AddPoseItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FF31F27C0E93B00A65962 /* AddPoseItemView.swift */; };
+		9B7FF32327C0F69F00A65962 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FF32227C0F69F00A65962 /* ImagePickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		9B7FF31B27C0DA8700A65962 /* PoseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseItem.swift; sourceTree = "<group>"; };
 		9B7FF31D27C0E11700A65962 /* PoseItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseItems.swift; sourceTree = "<group>"; };
 		9B7FF31F27C0E93B00A65962 /* AddPoseItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPoseItemView.swift; sourceTree = "<group>"; };
+		9B7FF32227C0F69F00A65962 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 				9B7FF31F27C0E93B00A65962 /* AddPoseItemView.swift */,
 				9B7FF31827C0D92300A65962 /* PoseItemDetailView.swift */,
 				9B7FF31627C0D3C600A65962 /* PoseItemView.swift */,
+				9B7FF32227C0F69F00A65962 /* ImagePickerView.swift */,
 			);
 			path = PoseItemViews;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				9B7FF2F627BF334700A65962 /* CaptureViewModel.swift in Sources */,
 				9B7FF2EE27BF32B100A65962 /* CameraManager.swift in Sources */,
 				9B7FF2EC27BF328100A65962 /* CameraError.swift in Sources */,
+				9B7FF32327C0F69F00A65962 /* ImagePickerView.swift in Sources */,
 				9B7FF2FD27BF33B100A65962 /* ErrorView.swift in Sources */,
 				9B7FF2FF27BF33D200A65962 /* FrameView.swift in Sources */,
 				9B7FF32027C0E93B00A65962 /* AddPoseItemView.swift in Sources */,
