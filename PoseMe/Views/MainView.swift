@@ -25,6 +25,6 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-      MainView(poseItems: .constant([]), saveAction: {})
+      MainView(poseItems: .constant([PoseItem(name: "Pose", points: [], image: nil)]), saveAction: {})
     }
 }

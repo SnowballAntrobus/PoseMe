@@ -14,6 +14,9 @@ struct CatalogView: View {
       NavigationView {
         VStack {
           HStack {
+            Text("Catalog")
+              .bold()
+              .padding()
             Spacer()
             Button(action: {}, label: { Text("Add") })
               .padding()
@@ -28,6 +31,6 @@ struct CatalogView: View {
 
 struct CatalogView_Previews: PreviewProvider {
     static var previews: some View {
-      CatalogView(poseItems: .constant([]))
+      CatalogView(poseItems: .constant([PoseItem(name: "Pose", points: [], image: nil)]))
     }
 }
