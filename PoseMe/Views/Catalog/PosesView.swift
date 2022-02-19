@@ -10,22 +10,29 @@ import SwiftUI
 struct PosesView: View {
   @Binding var poseItems: [PoseItem]
   
-    var body: some View {
-      List {
-        if poseItems.isEmpty {
-          Text("You have \(poseItems.count) poses try adding some!")
-        } else {
-          ForEach(poseItems) { poseItem in
-            VStack {
-              NavigationLink(
-                destination: PoseItemDetailView(poseItem: poseItem),
-                label: { PoseItemView(poseItem: poseItem) }
-              )
-            }
-          }.onDelete(perform: removeRows)
-        }
+  var body: some View {
+    List {
+      if poseItems.isEmpty {
+        Text("You have \(poseItems.count) poses try adding some!")
+      } else {
+        ForEach(poseItems) { poseItem in
+          VStack {
+            NavigationLink(
+              destination: PoseItemDetailView(poseItem: binding(for: poseItem)),
+              label: { PoseItemView(poseItem: poseItem) }
+            )
+          }
+        }.onDelete(perform: removeRows)
       }
     }
+  }
+  
+  private func binding(for poseItem: PoseItem) -> Binding<PoseItem> {
+    guard let poseItemIndex = poseItems.firstIndex(where: { $0.id == poseItem.id }) else {
+      fatalError("Error: Can't find pose in array to create binding")
+    }
+    return $poseItems[poseItemIndex]
+  }
   
   private func removeRows(at offsets: IndexSet) {
     withAnimation {
@@ -36,6 +43,8 @@ struct PosesView: View {
 
 struct PosesView_Previews: PreviewProvider {
     static var previews: some View {
-      PosesView(poseItems: .constant([]))
+      NavigationView {
+        PosesView(poseItems: .constant([PoseItem(name: "Pose", points: [], image: nil)]))
+      }
     }
 }

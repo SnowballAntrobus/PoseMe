@@ -11,14 +11,17 @@ struct CatalogView: View {
   @Binding var poseItems: [PoseItem]
   
     var body: some View {
-      VStack {
-        HStack {
-          Spacer()
-          Button(action: {}, label: { Text("Add") })
-            .padding()
+      NavigationView {
+        VStack {
+          HStack {
+            Spacer()
+            Button(action: {}, label: { Text("Add") })
+              .padding()
+          }
+          
+          PosesView(poseItems: $poseItems)
+            .navigationBarHidden(true)
         }
-        
-        PosesView(poseItems: $poseItems)
       }
     }
 }
