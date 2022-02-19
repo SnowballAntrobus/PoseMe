@@ -24,6 +24,11 @@
 		9B7FF30C27BF511100A65962 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FF30B27BF511100A65962 /* ToggleButton.swift */; };
 		9B7FF31127C0CB7B00A65962 /* PoseDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FF31027C0CB7B00A65962 /* PoseDetection.swift */; };
 		9B7FF31327C0D02000A65962 /* PosePointDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FF31227C0D02000A65962 /* PosePointDrawing.swift */; };
+		9B7FF31527C0D3B600A65962 /* PosesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FF31427C0D3B600A65962 /* PosesView.swift */; };
+		9B7FF31727C0D3C600A65962 /* PoseItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FF31627C0D3C600A65962 /* PoseItemView.swift */; };
+		9B7FF31927C0D92300A65962 /* PoseItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FF31827C0D92300A65962 /* PoseItemDetailView.swift */; };
+		9B7FF31C27C0DA8700A65962 /* PoseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FF31B27C0DA8700A65962 /* PoseItem.swift */; };
+		9B7FF31E27C0E11700A65962 /* PoseItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7FF31D27C0E11700A65962 /* PoseItems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +51,11 @@
 		9B7FF30B27BF511100A65962 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		9B7FF31027C0CB7B00A65962 /* PoseDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseDetection.swift; sourceTree = "<group>"; };
 		9B7FF31227C0D02000A65962 /* PosePointDrawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosePointDrawing.swift; sourceTree = "<group>"; };
+		9B7FF31427C0D3B600A65962 /* PosesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosesView.swift; sourceTree = "<group>"; };
+		9B7FF31627C0D3C600A65962 /* PoseItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseItemView.swift; sourceTree = "<group>"; };
+		9B7FF31827C0D92300A65962 /* PoseItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseItemDetailView.swift; sourceTree = "<group>"; };
+		9B7FF31B27C0DA8700A65962 /* PoseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseItem.swift; sourceTree = "<group>"; };
+		9B7FF31D27C0E11700A65962 /* PoseItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseItems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +88,7 @@
 		9B27F7AF27BF2DD1009588F6 /* PoseMe */ = {
 			isa = PBXGroup;
 			children = (
+				9B7FF31A27C0DA6600A65962 /* Models */,
 				9B7FF30D27C0CB4C00A65962 /* PoseDetection */,
 				9B7FF2F727BF335D00A65962 /* Views */,
 				9B7FF2F427BF333200A65962 /* ViewModels */,
@@ -150,6 +161,9 @@
 			isa = PBXGroup;
 			children = (
 				9B7FF30627BF352900A65962 /* CatalogView.swift */,
+				9B7FF31427C0D3B600A65962 /* PosesView.swift */,
+				9B7FF31627C0D3C600A65962 /* PoseItemView.swift */,
+				9B7FF31827C0D92300A65962 /* PoseItemDetailView.swift */,
 			);
 			path = Catalog;
 			sourceTree = "<group>";
@@ -170,6 +184,15 @@
 				9B7FF31227C0D02000A65962 /* PosePointDrawing.swift */,
 			);
 			path = PoseDetection;
+			sourceTree = "<group>";
+		};
+		9B7FF31A27C0DA6600A65962 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9B7FF31B27C0DA8700A65962 /* PoseItem.swift */,
+				9B7FF31D27C0E11700A65962 /* PoseItems.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,8 +268,10 @@
 				9B7FF30727BF352900A65962 /* CatalogView.swift in Sources */,
 				9B7FF30327BF34F900A65962 /* MainView.swift in Sources */,
 				9B27F7B127BF2DD1009588F6 /* PoseMeApp.swift in Sources */,
+				9B7FF31927C0D92300A65962 /* PoseItemDetailView.swift in Sources */,
 				9B7FF31327C0D02000A65962 /* PosePointDrawing.swift in Sources */,
 				9B7FF30C27BF511100A65962 /* ToggleButton.swift in Sources */,
+				9B7FF31C27C0DA8700A65962 /* PoseItem.swift in Sources */,
 				9B7FF31127C0CB7B00A65962 /* PoseDetection.swift in Sources */,
 				9B7FF2F327BF330A00A65962 /* CGImageExtension.swift in Sources */,
 				9B7FF30927BF508B00A65962 /* ControlView.swift in Sources */,
@@ -256,7 +281,10 @@
 				9B7FF2EC27BF328100A65962 /* CameraError.swift in Sources */,
 				9B7FF2FD27BF33B100A65962 /* ErrorView.swift in Sources */,
 				9B7FF2FF27BF33D200A65962 /* FrameView.swift in Sources */,
+				9B7FF31727C0D3C600A65962 /* PoseItemView.swift in Sources */,
 				9B7FF2F027BF32D200A65962 /* FrameManager.swift in Sources */,
+				9B7FF31527C0D3B600A65962 /* PosesView.swift in Sources */,
+				9B7FF31E27C0E11700A65962 /* PoseItems.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

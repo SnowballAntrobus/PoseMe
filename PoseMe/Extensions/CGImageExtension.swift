@@ -7,6 +7,7 @@
 
 import CoreGraphics
 import VideoToolbox
+import ImageIO
 
 extension CGImage {
   static func create(from cvPixelBuffer: CVPixelBuffer?) -> CGImage? {
@@ -40,4 +41,14 @@ extension CGImage {
       return nil
     }
   }
+}
+
+extension CGImage {
+    var data: Data? {
+        guard let mutableData = CFDataCreateMutable(nil, 0),
+            let destination = CGImageDestinationCreateWithData(mutableData, "public.png" as CFString, 1, nil) else { return nil }
+        CGImageDestinationAddImage(destination, self, nil)
+        guard CGImageDestinationFinalize(destination) else { return nil }
+        return mutableData as Data
+    }
 }

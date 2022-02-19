@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct CatalogView: View {
+  @Binding var poseItems: [PoseItem]
+  
     var body: some View {
-        Text("Pose Catalog")
+      VStack {
+        HStack {
+          Spacer()
+          Button(action: {}, label: { Text("Add") })
+            .padding()
+        }
+        
+        PosesView(poseItems: $poseItems)
+      }
     }
 }
 
 struct CatalogView_Previews: PreviewProvider {
     static var previews: some View {
-        CatalogView()
+      CatalogView(poseItems: .constant([]))
     }
 }

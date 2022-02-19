@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct PoseMeApp: App {
+  @ObservedObject private var poseItems = PoseItems()
+  
   var body: some Scene {
     WindowGroup {
-      MainView()
+      MainView(poseItems: $poseItems.data) {
+        poseItems.save()
+      }
+      .onAppear {
+        poseItems.load()
+      }
     }
   }
 }

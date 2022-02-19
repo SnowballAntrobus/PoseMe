@@ -8,18 +8,23 @@
 import SwiftUI
 
 struct MainView: View {
+  @Binding var poseItems: [PoseItem]
+  @Environment(\.scenePhase) private var scenePhase
+  let saveAction: () -> Void
+  
     var body: some View {
       TabView {
         CaptureView()
           .tabItem { Image(systemName: "camera") }
-        CatalogView()
+        CatalogView(poseItems: $poseItems)
           .tabItem { Image(systemName: "book") }
       }
+      .onChange(of: scenePhase) { phase in if phase == .inactive { saveAction() } }
     }
 }
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+      MainView(poseItems: .constant([]), saveAction: {})
     }
 }
