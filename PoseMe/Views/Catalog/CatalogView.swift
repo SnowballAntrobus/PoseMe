@@ -18,7 +18,10 @@ struct CatalogView: View {
               .bold()
               .padding()
             Spacer()
-            Button(action: {}, label: { Text("Add") })
+            NavigationLink(
+              destination: AddPoseItemView(poseItems: $poseItems),
+              label: { Text("Add") }
+            )
               .padding()
           }
           

@@ -20,17 +20,18 @@ struct AddPoseItemView: View {
   
   var body: some View {
     VStack {
-      if let img = selectedImage {
-        if let cgImage = img.cgImage {
-          if let points = runPoseDetection(cgImage: cgImage).first {
-            if let finalImage = imageWithPosePoints(cgImage: cgImage, points: points) {
-              Image(uiImage: UIImage(cgImage: finalImage))
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 300, height: 300)
+      if let _ = selectedImage {
+        Image(uiImage: UIImage(cgImage: (self.image ?? UIImage(systemName: "timelapse")?.cgImage)!))
+          .resizable()
+          .aspectRatio(contentMode: .fit)
+          .frame(width: 300, height: 300)
+          .onAppear {
+            if let cgImage = self.selectedImage?.cgImage {
+              if let points = runPoseDetection(cgImage: cgImage).first {
+                imageWithPosePoints(cgImage: cgImage, points: points)
+              }
             }
           }
-        }
       } else {
         Button(action: {
           self.isImagePickerDisplay.toggle()
@@ -65,7 +66,7 @@ struct AddPoseItemView: View {
     }
   }
   
-  private func imageWithPosePoints(cgImage: CGImage, points: [CGPoint]) -> CGImage? {
+  private func imageWithPosePoints(cgImage: CGImage, points: [CGPoint]) {
     var finalImage: CGImage? = nil
     if let ctx = cgImage.copyContext() {
       ctx.setFillColor(UIColor.blue.cgColor)
@@ -76,7 +77,6 @@ struct AddPoseItemView: View {
     }
     self.posePoints = points
     self.image = finalImage
-    return finalImage
   }
   
   private func addPoseItem() {
