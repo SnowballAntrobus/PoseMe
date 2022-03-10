@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Firebase
+
 
 @main
 struct PoseMeApp: App {
@@ -17,7 +19,8 @@ struct PoseMeApp: App {
         poseItems.save()
       }
       .onAppear {
-        poseItems.load()
+          FirebaseApp.configure()
+          poseItems.load()
       }
     }
   }
