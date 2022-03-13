@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 class PoseItems: ObservableObject {
   private static var documentsFolder: URL {
@@ -21,6 +22,9 @@ class PoseItems: ObservableObject {
   @Published var data: [PoseItem] = []
   
   func load() {
+    //let dbReference = Database.database().reference()
+    //dbReference.child("name/first_name").setValue("Vivian")
+      
     DispatchQueue.global(qos: .background).async { [weak self] in
       guard let data = try? Data(contentsOf: Self.poseItemsURL) else {
         return
