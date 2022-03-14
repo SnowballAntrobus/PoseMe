@@ -44,7 +44,7 @@ struct PosesView: View {
 struct PosesView_Previews: PreviewProvider {
     static var previews: some View {
       NavigationView {
-        PosesView(poseItems: .constant([PoseItem(name: "Pose", points: [], image: nil)]))
+        PosesView(poseItems: .constant([PoseItem(name: "Pose", points: [CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1)], image: nil)]))
       }
     }
 }

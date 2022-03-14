@@ -13,12 +13,11 @@ struct MainView: View {
   let saveAction: () -> Void
   
     var body: some View {
-      TabView {
-        CaptureView()
-          .tabItem { Image(systemName: "camera") }
-        CatalogView(poseItems: $poseItems)
-          .tabItem { Image(systemName: "book") }
+      NavigationView {
+        CaptureView(poseItems: $poseItems)
+          .navigationBarHidden(true)
       }
+      
       .onChange(of: scenePhase) { phase in if phase == .inactive { saveAction() } }
     }
 }

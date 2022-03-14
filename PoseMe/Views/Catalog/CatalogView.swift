@@ -11,7 +11,6 @@ struct CatalogView: View {
   @Binding var poseItems: [PoseItem]
   
     var body: some View {
-      NavigationView {
         VStack {
           HStack {
             Text("Catalog")
@@ -28,12 +27,11 @@ struct CatalogView: View {
           PosesView(poseItems: $poseItems)
             .navigationBarHidden(true)
         }
-      }
     }
 }
 
 struct CatalogView_Previews: PreviewProvider {
     static var previews: some View {
-      CatalogView(poseItems: .constant([PoseItem(name: "Pose", points: [], image: nil)]))
+      CatalogView(poseItems: .constant([PoseItem(name: "Pose", points: [CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1)], image: nil)]))
     }
 }
