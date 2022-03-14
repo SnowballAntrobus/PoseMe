@@ -11,15 +11,16 @@ import CoreGraphics
 struct PoseItem: Identifiable, Codable {
   var id: UUID
   var name: String
-  var points: [CGPoint]
   var image: Data?
+  var pose: Pose
   
   init(id: UUID = UUID(), name: String, points: [CGPoint], image: CGImage?) {
     self.id = id
     self.name = name
-    self.points = points
+    self.pose = Pose(points: points)
     if let img = image {
       self.image = img.data
     }
   }
+  
 }

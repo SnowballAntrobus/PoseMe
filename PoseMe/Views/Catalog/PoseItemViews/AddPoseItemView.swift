@@ -15,6 +15,7 @@ struct AddPoseItemView: View {
   @State private var posePoints: [CGPoint]? = nil
   @State private var image: CGImage? = nil
   @State private var name: String = ""
+  @State private var enabledPose: Bool = false
   
   @Environment(\.presentationMode) var presentationMode
   
@@ -51,13 +52,17 @@ struct AddPoseItemView: View {
       
       HStack {
         if let p = self.posePoints{
-          Text("Found \(p.count) pose points!")
+          if p.count == 14 {
+            Text("Found all pose points!")
+          } else {
+            Text("Move Back - only found \(p.count) out of 14 pose points")
+          }
         } else {
           Text("No pose points found yet...")
         }
       }.padding(30)
       
-      Button(action: addPoseItem, label: {Text("Done")})
+      Button(action: addPoseItem, label: {Text("Done")}).disabled(!enabledPose)
       
       .sheet(isPresented: $isImagePickerDisplay) {
         ImagePicker(selectedImage: self.$selectedImage)
@@ -76,6 +81,12 @@ struct AddPoseItemView: View {
       }
     }
     self.posePoints = points
+    // Todo: Make this not hacky
+    if points.count == 14 {
+      self.enabledPose = true
+    } else {
+      self.enabledPose = false
+    }
     self.image = finalImage
   }
   
