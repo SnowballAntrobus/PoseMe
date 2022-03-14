@@ -33,15 +33,23 @@ func bodyPoseHandler(request: VNRequest, width: Int, height: Int) -> [[CGPoint]]
 }
 
 func processObservation(observation: VNHumanBodyPoseObservation, width: Int, height: Int) -> [CGPoint]{
-  guard let recognizedPoints = try? observation.recognizedPoints(.torso) else { return [] }
+  guard let recognizedPoints = try? observation.recognizedPoints(.all) else { return [] }
   
   let torsoJointNames: [VNHumanBodyPoseObservation.JointName] = [
     .neck,
     .rightShoulder,
+    .rightElbow,
+    .rightWrist,
     .rightHip,
+    .rightKnee,
+    .rightAnkle,
     .root,
     .leftHip,
-    .leftShoulder
+    .leftKnee,
+    .leftAnkle,
+    .leftShoulder,
+    .leftElbow,
+    .leftWrist
   ]
   
   let imagePoints: [CGPoint] = torsoJointNames.compactMap {
