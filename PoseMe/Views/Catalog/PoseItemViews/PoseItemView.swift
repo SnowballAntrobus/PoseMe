@@ -31,8 +31,8 @@ struct PoseItemView: View {
   }
 }
 
-struct PoseItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        PoseItemView(poseItem: PoseItem(name: "Pose", points: [CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1)], image: nil))
-    }
-}
+//struct PoseItemView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PoseItemView(poseItem: PoseItem(name: "Pose", points: [CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1)], image: nil))
+//    }
+//}

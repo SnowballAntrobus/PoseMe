@@ -30,8 +30,8 @@ struct CatalogView: View {
     }
 }
 
-struct CatalogView_Previews: PreviewProvider {
-    static var previews: some View {
-      CatalogView(poseItems: .constant([PoseItem(name: "Pose", points: [CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1)], image: nil)]))
-    }
-}
+//struct CatalogView_Previews: PreviewProvider {
+//    static var previews: some View {
+//      CatalogView(poseItems: .constant([PoseItem(name: "Pose", points: [CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1), CGPoint(1,1)], image: nil)]))
+//    }
+//}
