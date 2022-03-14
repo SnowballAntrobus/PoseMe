@@ -49,7 +49,7 @@ class CaptureViewModel: ObservableObject {
                   self.fixPoseMessage = fixPose(currentPose: currentPose, groudTruthPose: spose.pose)
                 }
               } else {
-                self.fixPoseMessage = "Move Back - your body is not in full view"
+                self.fixPoseMessage = "Move Back - \(points.count) out of 14 found)"
               }
               
               posePointDrawing(ctx: ctx, points: points)
