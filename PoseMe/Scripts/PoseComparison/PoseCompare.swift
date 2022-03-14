@@ -7,7 +7,7 @@
 
 import Foundation
 
-func fixPose(currentPose: Pose, groudTruthPose: Pose) -> String {
+func fixPose(currentPose: Pose, groudTruthPose: Pose) -> String? {
   let currentAngles = currentPose.getAngleDict()
   let gtAngles = groudTruthPose.getAngleDict()
   

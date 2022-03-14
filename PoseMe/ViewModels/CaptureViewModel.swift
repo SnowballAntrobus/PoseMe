@@ -12,6 +12,8 @@ import SwiftUI
 class CaptureViewModel: ObservableObject {
   @Published var error: Error?
   @Published var frame: CGImage?
+  @Published var selectedPose: PoseItem?
+  @Published var fixPoseMessage: String?
 
   var poseDetection = false
 
@@ -41,6 +43,15 @@ class CaptureViewModel: ObservableObject {
             ctx.setFillColor(UIColor.blue.cgColor)
               
             if let points = posePoints.first {
+              if points.count == 14 {
+                let currentPose = Pose(points: points)
+                if let spose = self.selectedPose {
+                  self.fixPoseMessage = fixPose(currentPose: currentPose, groudTruthPose: spose.pose)
+                }
+              } else {
+                self.fixPoseMessage = "Move Back - your body is not in full view"
+              }
+              
               posePointDrawing(ctx: ctx, points: points)
                 
               if let img = ctx.makeImage() {

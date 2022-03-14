@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PoseItemDetailView: View {
   @Binding var poseItem: PoseItem
+  @Binding var selectedPose: PoseItem?
+  
     var body: some View {
       VStack {
         if let imgData = poseItem.image {
@@ -25,6 +27,7 @@ struct PoseItemDetailView: View {
             .padding(10)
         }
         Text(poseItem.name)
+        Button(action: {selectedPose = poseItem}, label: {Text("Select this pose")} )
       }
     }
 }
