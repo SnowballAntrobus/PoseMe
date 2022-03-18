@@ -6,19 +6,26 @@
 //
 
 import SwiftUI
+import Firebase
+
 
 @main
 struct PoseMeApp: App {
+  init(){
+    FirebaseApp.configure()
+  }
   @ObservedObject private var poseItems = PoseItems()
-  
+    
   var body: some Scene {
     WindowGroup {
       MainView(poseItems: $poseItems.data) {
-        poseItems.save()
+          poseItems.save()
       }
       .onAppear {
-        poseItems.load()
+          poseItems.load()
+          
       }
     }
   }
+    
 }
