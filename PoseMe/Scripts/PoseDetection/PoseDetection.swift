@@ -58,7 +58,6 @@ func processObservation(observation: VNHumanBodyPoseObservation, width: Int, hei
     return VNImagePointForNormalizedPoint(point.location, width, height)
   }
   
-  print(imagePoints.count)
   return imagePoints
 
 }

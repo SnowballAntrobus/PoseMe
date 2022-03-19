@@ -42,18 +42,21 @@ class CaptureViewModel: ObservableObject {
           if let ctx = cgImage.copyContext() {
             ctx.setFillColor(UIColor.blue.cgColor)
               
-            if let points = posePoints.first {
+            if posePoints.count > 0 {
+              let points = posePoints[0]
               if points.count == 14 {
                 let currentPose = Pose(points: points)
                 if let spose = self.selectedPose {
                   if let pose = spose.pose{
                     self.fixPoseMessage = fixPose(currentPose: currentPose, groudTruthPose: pose)
                   } else {
-                    print("ERROR: selected pose does not exist")
+                    print("ERROR: pose in selected pose does not exist")
                   }
+                } else {
+                  print("ERROR: selected pose does not exist")
                 }
               } else {
-                self.fixPoseMessage = "Move Back - \(points.count) out of 14 found)"
+                self.fixPoseMessage = "Move Back - \(points.count) out of 14 found"
               }
               
               posePointDrawing(ctx: ctx, points: points)
