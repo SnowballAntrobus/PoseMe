@@ -46,7 +46,11 @@ class CaptureViewModel: ObservableObject {
               if points.count == 14 {
                 let currentPose = Pose(points: points)
                 if let spose = self.selectedPose {
-                  self.fixPoseMessage = fixPose(currentPose: currentPose, groudTruthPose: spose.pose)
+                  if let pose = spose.pose{
+                    self.fixPoseMessage = fixPose(currentPose: currentPose, groudTruthPose: pose)
+                  } else {
+                    print("ERROR: selected pose does not exist")
+                  }
                 }
               } else {
                 self.fixPoseMessage = "Move Back - \(points.count) out of 14 found)"

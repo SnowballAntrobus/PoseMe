@@ -89,3 +89,11 @@ struct Pose: Codable {
   }
   
 }
+
+//extension Pose {
+//    static var data: [Pose] {
+//        [
+//            Pose(points: CGPoint),
+//        ]
+//    }
+//}
