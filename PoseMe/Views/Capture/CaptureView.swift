@@ -26,6 +26,7 @@ struct CaptureView: View {
         if model.selectedPose != nil {
           if model.poseDetection {
             Text(model.fixPoseMessage ?? "ERROR: No message found")
+              .font(.system(size: 45, weight: .bold, design: .default))
           } else {
             Text("Selected: \(model.selectedPose?.name ?? "ERROR")")
             Text("press the PoseMe button to continue")

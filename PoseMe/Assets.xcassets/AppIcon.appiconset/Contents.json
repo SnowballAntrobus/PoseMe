@@ -1,91 +1,109 @@
 {
   "images" : [
     {
+      "filename" : "tumblr_65d0c4a1a18136b5a67831bd1e4dfb42_d8f980d0_1280-20@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
+      "filename" : "tumblr_65d0c4a1a18136b5a67831bd1e4dfb42_d8f980d0_1280-20@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
     },
     {
+      "filename" : "tumblr_65d0c4a1a18136b5a67831bd1e4dfb42_d8f980d0_1280-29@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
+      "filename" : "tumblr_65d0c4a1a18136b5a67831bd1e4dfb42_d8f980d0_1280-29@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
+      "filename" : "tumblr_65d0c4a1a18136b5a67831bd1e4dfb42_d8f980d0_1280-40@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
+      "filename" : "tumblr_65d0c4a1a18136b5a67831bd1e4dfb42_d8f980d0_1280-40@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
+      "filename" : "tumblr_65d0c4a1a18136b5a67831bd1e4dfb42_d8f980d0_1280-60@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
+      "filename" : "tumblr_65d0c4a1a18136b5a67831bd1e4dfb42_d8f980d0_1280-60@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
     },
     {
+      "filename" : "tumblr_65d0c4a1a18136b5a67831bd1e4dfb42_d8f980d0_1280-20.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "20x20"
     },
     {
+      "filename" : "tumblr_65d0c4a1a18136b5a67831bd1e4dfb42_d8f980d0_1280-20@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
+      "filename" : "tumblr_65d0c4a1a18136b5a67831bd1e4dfb42_d8f980d0_1280-29.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "29x29"
     },
     {
+      "filename" : "tumblr_65d0c4a1a18136b5a67831bd1e4dfb42_d8f980d0_1280-29@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
+      "filename" : "tumblr_65d0c4a1a18136b5a67831bd1e4dfb42_d8f980d0_1280-40.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "40x40"
     },
     {
+      "filename" : "tumblr_65d0c4a1a18136b5a67831bd1e4dfb42_d8f980d0_1280-40@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
+      "filename" : "tumblr_65d0c4a1a18136b5a67831bd1e4dfb42_d8f980d0_1280-76.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "76x76"
     },
     {
+      "filename" : "tumblr_65d0c4a1a18136b5a67831bd1e4dfb42_d8f980d0_1280-76@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
     },
     {
+      "filename" : "tumblr_65d0c4a1a18136b5a67831bd1e4dfb42_d8f980d0_1280-83.5@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "83.5x83.5"
     },
     {
+      "filename" : "tumblr_65d0c4a1a18136b5a67831bd1e4dfb42_d8f980d0_1280-1024.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
