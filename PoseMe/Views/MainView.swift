@@ -10,14 +10,17 @@ import SwiftUI
 struct MainView: View {
   @Binding var poseItems: [PoseItem]
   @Environment(\.scenePhase) private var scenePhase
+  @State var showingCatalog = false
   let saveAction: () -> Void
   
     var body: some View {
-      NavigationView {
-        CaptureView(poseItems: $poseItems)
-          .navigationBarHidden(true)
-      }
+      CaptureView(poseItems: $poseItems, showingCatalog: $showingCatalog)
       
+        .sheet(isPresented: $showingCatalog) {
+          CatalogView(poseItems: $poseItems)
+        }
+        
+        
       .onChange(of: scenePhase) { phase in if phase == .inactive { saveAction() } }
     }
 }

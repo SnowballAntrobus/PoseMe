@@ -10,6 +10,7 @@ import SwiftUI
 struct CaptureView: View {
   @EnvironmentObject var model: CaptureViewModel
   @Binding var poseItems: [PoseItem]
+  @Binding var showingCatalog: Bool
 
   var body: some View {
     ZStack {
@@ -18,7 +19,7 @@ struct CaptureView: View {
 
       ErrorView(error: model.error)
       
-      ControlView(showPose: $model.poseDetection, poseItems: $poseItems)
+      ControlView(showPose: $model.poseDetection, showingCatalog: $showingCatalog)
       
       VStack {
         Spacer()
@@ -39,6 +40,6 @@ struct CaptureView: View {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    CaptureView(poseItems: .constant([]))
+    CaptureView(poseItems: .constant([]), showingCatalog: .constant(false))
   }
 }

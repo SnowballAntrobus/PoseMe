@@ -11,6 +11,7 @@ struct CatalogView: View {
   @Binding var poseItems: [PoseItem]
   
     var body: some View {
+      NavigationView {
         VStack {
           HStack {
             Spacer()
@@ -26,6 +27,8 @@ struct CatalogView: View {
           )
           
         }
+      }
+      
     }
 }
 
