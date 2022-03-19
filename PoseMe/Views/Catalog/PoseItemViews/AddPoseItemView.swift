@@ -17,6 +17,9 @@ struct AddPoseItemView: View {
   @State private var name: String = ""
   @State private var enabledPose: Bool = false
   
+  @EnvironmentObject var model: CaptureViewModel
+  @Binding var showingCatalog: Bool
+  
   @Environment(\.presentationMode) var presentationMode
   
   var body: some View {
@@ -94,16 +97,18 @@ struct AddPoseItemView: View {
     if self.posePoints != nil && self.image != nil && self.name != "" {
       let newPoseItem = PoseItem(name: self.name, points: self.posePoints!, image: self.image!)
       poseItems.append(newPoseItem)
+      model.selectedPose = newPoseItem
       self.posePoints = nil
       self.image = nil
       self.name = ""
       self.presentationMode.wrappedValue.dismiss()
+      showingCatalog = false
     }
   }
 }
 
 struct AddPoseItemView_Previews: PreviewProvider {
     static var previews: some View {
-      AddPoseItemView(poseItems: .constant([]))
+      AddPoseItemView(poseItems: .constant([]), showingCatalog: .constant(false))
     }
 }

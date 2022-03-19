@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CatalogView: View {
   @Binding var poseItems: [PoseItem]
+  @Binding var showingCatalog: Bool
   
     var body: some View {
       NavigationView {
@@ -20,9 +21,9 @@ struct CatalogView: View {
             Spacer()
           }
           
-          PosesView(poseItems: $poseItems)
+          PosesView(poseItems: $poseItems, showingCatalog: $showingCatalog)
           NavigationLink(
-            destination: AddPoseItemView(poseItems: $poseItems),
+            destination: AddPoseItemView(poseItems: $poseItems, showingCatalog: $showingCatalog),
             label: { Text("Add") }
           )
           

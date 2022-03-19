@@ -17,7 +17,7 @@ struct MainView: View {
       CaptureView(poseItems: $poseItems, showingCatalog: $showingCatalog)
       
         .sheet(isPresented: $showingCatalog) {
-          CatalogView(poseItems: $poseItems)
+          CatalogView(poseItems: $poseItems, showingCatalog: $showingCatalog)
         }
         
         
