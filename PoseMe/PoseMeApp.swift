@@ -15,12 +15,14 @@ struct PoseMeApp: App {
     FirebaseApp.configure()
   }
   @ObservedObject private var poseItems = PoseItems()
+  @StateObject private var model = CaptureViewModel()
     
   var body: some Scene {
     WindowGroup {
       MainView(poseItems: $poseItems.data) {
           poseItems.save()
       }
+      .environmentObject(model)
       .onAppear {
           poseItems.load()
           

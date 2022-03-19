@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CaptureView: View {
-  @StateObject private var model = CaptureViewModel()
+  @EnvironmentObject var model: CaptureViewModel
   @Binding var poseItems: [PoseItem]
 
   var body: some View {
@@ -18,7 +18,7 @@ struct CaptureView: View {
 
       ErrorView(error: model.error)
       
-      ControlView(showPose: $model.poseDetection, poseItems: $poseItems, selectedPose: $model.selectedPose)
+      ControlView(showPose: $model.poseDetection, poseItems: $poseItems)
       
       VStack {
         Spacer()

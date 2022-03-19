@@ -9,7 +9,6 @@ import SwiftUI
 
 struct PosesView: View {
   @Binding var poseItems: [PoseItem]
-  @Binding var selectedPose: PoseItem?
   
   var body: some View {
     List {
@@ -19,7 +18,7 @@ struct PosesView: View {
         ForEach(poseItems) { poseItem in
           VStack {
             NavigationLink(
-              destination: PoseItemDetailView(poseItem: binding(for: poseItem), selectedPose: $selectedPose),
+              destination: PoseItemDetailView(poseItem: binding(for: poseItem)),
               label: { PoseItemView(poseItem: poseItem) }
             )
           }

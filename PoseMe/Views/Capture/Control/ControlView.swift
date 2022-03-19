@@ -10,13 +10,12 @@ import SwiftUI
 struct ControlView: View {
   @Binding var showPose: Bool
   @Binding var poseItems: [PoseItem]
-  @Binding var selectedPose: PoseItem?
 
   var body: some View {
     VStack {
       HStack(spacing: 12) {
         NavigationLink(
-          destination: CatalogView(poseItems: $poseItems, selectedPose: $selectedPose),
+          destination: CatalogView(poseItems: $poseItems),
           label: { Image(systemName: "book") }
         )
           .padding()
@@ -36,7 +35,7 @@ struct ControlView_Previews: PreviewProvider {
       Color.black
         .edgesIgnoringSafeArea(.all)
 
-      ControlView(showPose: .constant(false), poseItems: .constant([]), selectedPose: .constant(nil))
+      ControlView(showPose: .constant(false), poseItems: .constant([]))
     }
   }
 }

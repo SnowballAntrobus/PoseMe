@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PoseItemDetailView: View {
   @Binding var poseItem: PoseItem
-  @Binding var selectedPose: PoseItem?
+  @EnvironmentObject var model: CaptureViewModel
   
     var body: some View {
       VStack {
@@ -27,7 +27,7 @@ struct PoseItemDetailView: View {
             .padding(10)
         }
         Text(poseItem.name)
-        Button(action: {selectedPose = poseItem}, label: {Text("Select this pose")} )
+        Button(action: {model.selectedPose = poseItem}, label: {Text("Select this pose")} )
       }
     }
 }

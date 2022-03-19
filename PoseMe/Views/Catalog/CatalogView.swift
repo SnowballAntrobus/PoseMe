@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CatalogView: View {
   @Binding var poseItems: [PoseItem]
-  @Binding var selectedPose: PoseItem?
   
     var body: some View {
         VStack {
@@ -20,7 +19,7 @@ struct CatalogView: View {
             Spacer()
           }
           
-          PosesView(poseItems: $poseItems, selectedPose: $selectedPose)
+          PosesView(poseItems: $poseItems)
           NavigationLink(
             destination: AddPoseItemView(poseItems: $poseItems),
             label: { Text("Add") }
